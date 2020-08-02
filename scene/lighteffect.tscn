@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://VisualEffect1/shader/light.shader" type="Shader" id=1]
+[ext_resource path="res://background.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadeout"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/size = 0.3
+
+[node name="lighteffect" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fadeout = SubResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+material = SubResource( 2 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://VisualEffect1/script/groundPolygon.gd" type="Script" id=2]
+
+[node name="groundBody" type="RigidBody2D"]
+mode = 1
+can_sleep = false
+
+[node name="groundPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="ground" type="Polygon2D" parent="groundPolygon"]
+color = Color( 0.603922, 0.0588235, 0.0588235, 1 )
+polygon = PoolVector2Array( -1.1911, 439.68, 163.432, 439.042, 347.779, 436.923, 527.887, 441.161, 788.515, 439.042, 952.553, 437.302, 1028.03, 440.475, 1038.1, 904.126, -1.10315, 902.979 )
